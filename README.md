@@ -132,6 +132,7 @@ Filter = CombineLayers;Cutout;exclusion;positive
 ## Credits
 
 Based on [MergeLayer](https://github.com/schriftgestalt/MergeLayer) by Georg Seifert.
+
 Tutorial by Rizka Prayuda.
 
 ## License
