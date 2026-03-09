@@ -335,10 +335,12 @@ class CombineLayers(FilterWithDialog):
 				isInner = False
 				for p in positive:
 					pb = p.bounds
-					if (sb.origin.x >= pb.origin.x and
-						sb.origin.y >= pb.origin.y and
-						sb.origin.x + sb.size.width <= pb.origin.x + pb.size.width and
-						sb.origin.y + sb.size.height <= pb.origin.y + pb.size.height):
+					if (
+						sb.origin.x >= pb.origin.x
+						and sb.origin.y >= pb.origin.y
+						and sb.origin.x + sb.size.width <= pb.origin.x + pb.size.width
+						and sb.origin.y + sb.size.height <= pb.origin.y + pb.size.height
+					):
 						isInner = True
 						break
 				if isInner:
@@ -368,14 +370,16 @@ class CombineLayers(FilterWithDialog):
 		layer.removeOverlap()
 		tempAB = layer.copy()
 		for s in bShapes:
-			c = s.copy(); c.reverse()
+			c = s.copy()
+			c.reverse()
 			tempAB.shapes.append(c)
 		tempAB.removeOverlap()
 		tempBA = GSLayer()
 		for s in bShapes:
 			tempBA.shapes.append(s.copy())
 		for s in layer.shapes:
-			c = s.copy(); c.reverse()
+			c = s.copy()
+			c.reverse()
 			tempBA.shapes.append(c)
 		tempBA.removeOverlap()
 		tempV = layer.copy()
@@ -383,16 +387,19 @@ class CombineLayers(FilterWithDialog):
 			tempV.shapes.append(s.copy())
 		tempV.removeOverlap()
 		for s in tempAB.shapes:
-			c = s.copy(); c.reverse()
+			c = s.copy()
+			c.reverse()
 			tempV.shapes.append(c)
 		for s in tempBA.shapes:
-			c = s.copy(); c.reverse()
+			c = s.copy()
+			c.reverse()
 			tempV.shapes.append(c)
 		tempV.removeOverlap()
 		for s in bShapes:
 			layer.shapes.append(s.copy())
 		for s in tempV.shapes:
-			c = s.copy(); c.reverse()
+			c = s.copy()
+			c.reverse()
 			layer.shapes.append(c)
 		layer.removeOverlap()
 
@@ -441,14 +448,16 @@ class CombineLayers(FilterWithDialog):
 			intLayer = layer.copy()
 			tempAB = intLayer.copy()
 			for s in bExc:
-				c = s.copy(); c.reverse()
+				c = s.copy()
+				c.reverse()
 				tempAB.shapes.append(c)
 			tempAB.removeOverlap()
 			tempBA = GSLayer()
 			for s in bExc:
 				tempBA.shapes.append(s.copy())
 			for s in intLayer.shapes:
-				c = s.copy(); c.reverse()
+				c = s.copy()
+				c.reverse()
 				tempBA.shapes.append(c)
 			tempBA.removeOverlap()
 			tempV = intLayer.copy()
@@ -456,22 +465,26 @@ class CombineLayers(FilterWithDialog):
 				tempV.shapes.append(s.copy())
 			tempV.removeOverlap()
 			for s in tempAB.shapes:
-				c = s.copy(); c.reverse()
+				c = s.copy()
+				c.reverse()
 				tempV.shapes.append(c)
 			for s in tempBA.shapes:
-				c = s.copy(); c.reverse()
+				c = s.copy()
+				c.reverse()
 				tempV.shapes.append(c)
 			tempV.removeOverlap()
 			tempInt = intLayer.copy()
 			for s in bExc:
 				tempInt.shapes.append(s.copy())
 			for s in tempV.shapes:
-				c = s.copy(); c.reverse()
+				c = s.copy()
+				c.reverse()
 				tempInt.shapes.append(c)
 			tempInt.removeOverlap()
 			# Subtract A∩B from A (safe: A∩B is entirely within A)
 			for s in tempInt.shapes:
-				c = s.copy(); c.reverse()
+				c = s.copy()
+				c.reverse()
 				layer.shapes.append(c)
 			layer.removeOverlap()
 
