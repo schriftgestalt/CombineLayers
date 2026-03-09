@@ -2,12 +2,9 @@
 from __future__ import division, print_function, unicode_literals
 
 import objc
-from GlyphsApp import *
-from GlyphsApp.plugins import *
-try:
-	from AppKit import NSView, NSButton, NSPopUpButton, NSTextField, NSFont, NSMakeRect
-except:
-	from Cocoa import NSView, NSButton, NSPopUpButton, NSTextField, NSFont, NSMakeRect
+from GlyphsApp import Glyphs, GSInstance, GSCustomParameter, GSLayer
+from GlyphsApp.plugins import FilterWithDialog
+from Cocoa import NSView, NSButton, NSPopUpButton, NSTextField, NSFont, NSMakeRect
 
 BOOL_OPS = ["Add", "Exclusion", "Intersection"]
 PATH_OPS = ["Current", "Revert", "Positive", "Negative"]
